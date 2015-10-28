@@ -77,10 +77,10 @@ module SchemaPlus::ActiveRecord::ConnectionAdapters
         alias_method_chain :references, :schema_plus
         alias_method_chain :belongs_to, :schema_plus
         alias_method_chain :primary_key, :schema_plus
-        alias_method_chain :to_sql, :schema_plus
+        #alias_method_chain :to_sql, :schema_plus
       end
     end
-        
+
     def initialize_with_schema_plus(*args) #:nodoc:
       initialize_without_schema_plus(*args)
       @foreign_keys = []
