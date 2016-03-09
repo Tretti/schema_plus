@@ -64,6 +64,7 @@ module SchemaPlus
         # :enddoc:
 
         ACTIONS = { :cascade => "CASCADE", :restrict => "RESTRICT", :set_null => "SET NULL", :set_default => "SET DEFAULT", :no_action => "NO ACTION" }.freeze
+        ACTIONS_REVERSED = ACTIONS.invert.freeze
 
         def initialize(from_table, to_table, options)
           super

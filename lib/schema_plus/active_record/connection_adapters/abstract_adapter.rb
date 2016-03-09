@@ -26,6 +26,7 @@ module SchemaPlus
                     when /^MySQL/i                 then 'MysqlAdapter'
                     when 'PostgreSQL', 'PostGIS'   then 'PostgresqlAdapter'
                     when 'SQLite'                  then 'Sqlite3Adapter'
+                    when 'SQLServer'               then 'SqlserverAdapter'
                     end
           if adapter.nil?
             unless adapter_name == 'JDBC' # ARJDBC
@@ -267,16 +268,16 @@ module SchemaPlus
         #
 
         # (abstract) Returns the names of all views, as an array of strings
-        def views(name = nil) raise "Internal Error: Connection adapter didn't override abstract function"; [] end
+        def views(name = nil) raise "Internal Error: Connection adapter didn't override abstract function: '#{__method__}'"; [] end
 
         # (abstract) Returns the SQL definition of a given view.  This is
         # the literal SQL would come after 'CREATVE VIEW viewname AS ' in
         # the SQL statement to create a view.
-        def view_definition(view_name, name = nil) raise "Internal Error: Connection adapter didn't override abstract function"; end
+        def view_definition(view_name, name = nil) raise "Internal Error: Connection adapter didn't override abstract function: '#{__method__}'"; end
 
         # (abstract) Return the ForeignKeyDefinition objects for foreign key
         # constraints defined on this table
-        def foreign_keys(table_name, name = nil) raise "Internal Error: Connection adapter didn't override abstract function"; [] end
+        def foreign_keys(table_name, name = nil) raise "Internal Error: Connection adapter didn't override abstract function: '#{__method__}'"; [] end
 
         # (abstract) Return the ForeignKeyDefinition objects for foreign key
         # constraints defined on other tables that reference this table
